@@ -5,13 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Students extends Model
+class Program_RunType extends Model
 {
     use HasFactory;
-    protected $fillable = ['fname', 'mname', 'lname', 'doa', 'doc', 'program_id', 'cert_no'];
-
     public function program()
     {
-        return $this->belongsTo(Program::class, 'id');
+        return $this->hasMany(Program::class, 'program_run_type_id');
     }
 }

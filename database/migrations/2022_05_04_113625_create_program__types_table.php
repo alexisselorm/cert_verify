@@ -13,15 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('students', function (Blueprint $table) {
-            $table->id();
-            $table->string('fname');
-            $table->string('mname');
-            $table->string('lname');
-            $table->string('doa', 7)->nullable();
-            $table->string('doc', 7)->nullable();
-            $table->string('cert_no');
-            $table->foreignId('program_id')->default(1);
+        Schema::create('program__types', function (Blueprint $table) {
+            $table->tinyInteger('id')->autoIncrement();
+            $table->string('comment', 50);
             $table->timestamps();
         });
     }
@@ -33,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('students');
+        Schema::dropIfExists('program__types');
     }
 };

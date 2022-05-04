@@ -19,4 +19,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('students/{students:cert_no}', [StudentsController::class,'show']);
+// Route::get('students/{students:cert_no}', [StudentsController::class, 'show'])->name('show');
+Route::get('students/{id}', [StudentsController::class, 'show'])->name('show');

@@ -1,9 +1,7 @@
 import React,{useState} from 'react';
 import axios from 'axios';
 import ReactDOM from 'react-dom';
-import Button from '@mui/material/Button';
-import SendIcon from '@mui/icons-material/Send';
-import TextField from '@mui/material/TextField';
+
 
 function Example() {
     const [search,setSearch] = useState("")
@@ -15,7 +13,7 @@ const [studentData,setStudentData] = useState({})
     }
 
     const handleClick=async(event)=>{
-        var APICallString = "http://localhost:8000/api/students/"+search
+        var APICallString = "/api/students/"+search
     let resp = null
    await axios.get(APICallString,{validateStatus:false})
     .then(function(response){
@@ -32,7 +30,7 @@ const [studentData,setStudentData] = useState({})
                         <div className="card-header">Certificate Search</div>
 
                         <div className="card-body">
-                            <TextField helperText="Please enter Certificate Number" 
+                            <input
                             className="text_field"
                             type="text" 
                             label="Certificate Number"
@@ -40,12 +38,11 @@ const [studentData,setStudentData] = useState({})
                             onChange={handleChange} 
                             value={search}
                             />
-                            <Button 
+                            <button
                             variant="contained" 
                             size="large"
-                            endIcon={<SendIcon />} 
                             onClick={e=>handleClick(e)}
-                            >Search</Button>
+                            >Search</button>
                             
                         </div>
 

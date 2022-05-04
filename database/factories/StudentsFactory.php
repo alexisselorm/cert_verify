@@ -17,7 +17,9 @@ class StudentsFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->name(),
+            'fname' => $this->faker->firstName(),
+            'lname' => $this->faker->lastName(),
+            'mname' => $this->faker->firstName(),
             'cert_no' => $this->faker->unique()->numberBetween(100000, 900000),
         ];
     }
