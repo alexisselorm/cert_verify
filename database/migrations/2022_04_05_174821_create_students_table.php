@@ -20,6 +20,8 @@ return new class extends Migration
             $table->string('lname');
             $table->string('doa', 7)->nullable();
             $table->string('doc', 7)->nullable();
+            $table->string('regno');
+            $table->tinyInteger('cgpa');
             $table->string('cert_no');
             $table->foreignId('program_id')->default(1);
             $table->timestamps();

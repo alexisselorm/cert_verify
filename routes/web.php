@@ -22,11 +22,10 @@ Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('whoami', function () {
     dd(Auth()->user());
 });
 
-Route::get('/search/', [StudentsController::class, 'search'])->name('search');
-Route::post('/search/', [StudentsController::class, 'search'])->name('searcher');
+Route::get('/search', [StudentsController::class, 'search'])->name('search');

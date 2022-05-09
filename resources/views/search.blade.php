@@ -9,29 +9,34 @@
 </head>
 
 <body>
-    <form action="{{ route('searcher') }}" method="POST">
+    <form action="{{ route('search') }}" method="GET">
         @csrf
         <input type="text" name="search" required />
         <button type="submit">Search</button>
     </form>
 
     <div>
-
-        @if ($students->isNotEmpty())
-            @foreach ($students as $student)
-                <div class="post-list">
-                    {{-- {{ dd($student) }} --}}
-                    <p>{{ $student->cert_no }}</p>
-                    <p>{{ $student->name }}</p>
+        @if (isset('search'))
+            @if ($students->isNotEmpty())
+                @foreach ($students as $student)
+                    <div class="post-list">
+                        {{-- {{ dd($student) }} --}}
+                        <p>{{ $student->cert_no }}</p>
+                        <p>{{ $student->fname }}</p>
+                        <p>{{ $student->lname }}</p>
+                        <p>{{ $student->program->long_name }}</p>
+                    </div>
+                @endforeach
+            @else
+                <div>
+                    <h2>No students found</h2>
                 </div>
-            @endforeach
-        @else
-            <div>
-                <h2>No students found</h2>
-            </div>
 
+            @endif
         @endif
+
     </div>
+
 </body>
 
 </html>

@@ -12,6 +12,6 @@ class Students extends Model
 
     public function program()
     {
-        return $this->belongsTo(Program::class, 'id');
+        return $this->belongsTo(Program::class);
     }
 }

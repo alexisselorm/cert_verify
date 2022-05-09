@@ -10,6 +10,6 @@ class Program_Type extends Model
     use HasFactory;
     public function program()
     {
-        return $this->hasOne(Program::class, 'program_type_id');
+        return $this->hasMany(Program::class, 'program_type_id');
     }
 }

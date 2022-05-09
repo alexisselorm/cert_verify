@@ -11,15 +11,15 @@ class Program extends Model
 
     public function program_run_type()
     {
-        return $this->hasOne(Program_RunType::class);
+        return $this->belongsTo(Program_RunType::class);
     }
-    // public function program_type()
-    // {
-    //     return $this->hasOne(Program_Type::class,'id');
-    // }
+    public function program_type()
+    {
+        return $this->belongsTo(Program_Type::class);
+    }
     public function student()
     {
-        return $this->hasMany(Student::class, 'id');
+        return $this->hasMany(Student::class, 'program_id');
 
     }
 }

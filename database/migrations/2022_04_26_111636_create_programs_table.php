@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('long_name', 100);
             $table->string('short_name', 100);
+            $table->string('duration', 2);
             $table->foreignId('program_run_type_id');
             $table->foreignId('program_type_id');
             $table->timestamps();
