@@ -15,14 +15,14 @@ return new class extends Migration
     {
         Schema::create('students', function (Blueprint $table) {
             $table->id();
-            $table->string('fname');
-            $table->string('mname');
-            $table->string('lname');
+            $table->string('fname', 20);
+            $table->string('mname', 20);
+            $table->string('lname', 20);
             $table->string('doa', 7)->nullable();
             $table->string('doc', 7)->nullable();
-            $table->string('regno');
-            $table->tinyInteger('cgpa');
-            $table->string('cert_no');
+            $table->string('regno', 25);
+            $table->decimal('cgpa', 2, 1);
+            $table->string('cert_no', 25);
             $table->foreignId('program_id')->default(1);
             $table->timestamps();
         });

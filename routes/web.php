@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\StudentsController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SearchController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,4 +29,4 @@ Route::get('whoami', function () {
     dd(Auth()->user());
 });
 
-Route::get('/search', [StudentsController::class, 'search'])->name('search');
+Route::get('/search', SearchController::class);

@@ -1,42 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.app')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
+@section('content')
+    <div class="container">
+        <div class="row justify-content-center">
 
-<body>
-    <form action="{{ route('search') }}" method="GET">
-        @csrf
-        <input type="text" name="search" required />
-        <button type="submit">Search</button>
-    </form>
+            <div class="card-header">{{ __('Dashboard') }}</div>
 
-    <div>
-        @if (isset('search'))
-            @if ($students->isNotEmpty())
-                @foreach ($students as $student)
-                    <div class="post-list">
-                        {{-- {{ dd($student) }} --}}
-                        <p>{{ $student->cert_no }}</p>
-                        <p>{{ $student->fname }}</p>
-                        <p>{{ $student->lname }}</p>
-                        <p>{{ $student->program->long_name }}</p>
+            <div class="card-body">
+                @if (session('status'))
+                    <div class="alert alert-success" role="alert">
+                        {{ session('status') }}
                     </div>
-                @endforeach
-            @else
+                @endif
                 <div>
-                    <h2>No students found</h2>
+                    <form action="/search" method="GET">
+                        <input type="search" name="query" placeholder="Type a certificate number" style="width:100%">
+                        <button>Search</button>
+                    </form>
+                    {{-- @if ($results)
+                        <div class="space-y-4">
+                            @if ($results->count())
+                                @foreach ($results as result)
+
+                                @endforeach
+                            @else
+                                <p>No student found</p>
+                            @endif --}}
+                        {{-- </div>
+                    @endif --}}
                 </div>
-
-            @endif
-        @endif
-
+            </div>
+        </div>
     </div>
-
-</body>
-
-</html>
+@endsection
