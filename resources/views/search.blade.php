@@ -14,20 +14,23 @@
                 @endif
                 <div>
                     <form action="/search" method="GET">
-                        <input type="search" name="query" placeholder="Type a certificate number" style="width:100%">
+                        <input required value="{{ request()->get('query') }}" type="search" name="query"
+                            placeholder="Type a certificate number" style="width:100%">
                         <button>Search</button>
                     </form>
-                    {{-- @if ($results)
+                    @if ($students)
                         <div class="space-y-4">
-                            @if ($results->count())
-                                @foreach ($results as result)
-
+                            @if ($students->count())
+                                @foreach ($students as $student)
+                                    <div>
+                                        <h1>{{ $student->program->short_name }}</h1>
+                                    </div>
                                 @endforeach
                             @else
                                 <p>No student found</p>
-                            @endif --}}
-                        {{-- </div>
-                    @endif --}}
+                            @endif
+                        </div>
+                    @endif
                 </div>
             </div>
         </div>

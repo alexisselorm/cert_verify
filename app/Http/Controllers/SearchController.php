@@ -14,13 +14,13 @@ class SearchController extends Controller
         $query = $request->get('query');
         if ($query) {
             $results = Students::search($query)->query(function ($builder) {
-                $builder->with('program','program.program_run_type', 'program.program_type');
+                $builder->with('program', 'program.program_run_type', 'program.program_type');
             })->get();
 
-            dd($results);
+            // dd($results);
         }
         return view('search', [
-            'results' => $results,
+            'students' => $results,
         ]);
 
     }
