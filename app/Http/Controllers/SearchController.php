@@ -11,7 +11,7 @@ class SearchController extends Controller
     //
     public function __invoke(Request $request)
     {
-
+    
         $results = null;
         $query = $request->get('query');
         if ($query) {
@@ -20,8 +20,9 @@ class SearchController extends Controller
                     $builder
                         ->with('program', 'program.program_run_type', 'program.program_type');
                 })
+                ->where('cert_no', $query)
                 ->get();
-            dd($results);
+            // dd($results);
             if ($results->count()) {
                 Alert::success('Success', 'Student Record found');
             } else {

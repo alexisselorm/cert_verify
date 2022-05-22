@@ -14,7 +14,7 @@
                 @endif
                 <div>
                     <form action="/search" method="GET">
-                        <input required minlength="5" value="{{ request()->get('query') }}" type="search" name="query"
+                        <input  minlength="5" value="{{ request()->get('query') }}" type="search" name="query"
                             placeholder="Type a certificate number" style="width:100%">
                         <button>Search</button>
                     </form>

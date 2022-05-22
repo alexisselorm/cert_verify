@@ -1,8 +1,8 @@
 <?php
 
+use App\Http\Controllers\SearchController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\SearchController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,15 +15,11 @@ use App\Http\Controllers\SearchController;
 |
  */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('whoami', function () {
     dd(Auth()->user());
