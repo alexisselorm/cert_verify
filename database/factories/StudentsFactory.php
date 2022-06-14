@@ -20,7 +20,7 @@ class StudentsFactory extends Factory
             'fname' => $this->faker->firstName(),
             'lname' => $this->faker->lastName(),
             'mname' => $this->faker->firstName(),
-            'regno' => $this->faker->address(),
+            'regno' => $this->faker->firstName(),
             'cgpa' => $this->faker->numberBetween(1.0,4.0),
             'cert_no' => $this->faker->unique()->numberBetween(100000, 900000),
             'program_id' => $this->faker->numberBetween(1, 6),
